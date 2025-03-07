@@ -4,6 +4,7 @@
 	<feature automatic="selected" name="Radar"/>
 	<feature manual="selected" name="SpinningRadar"/>
 	<feature automatic="unselected" name="MouseRadar"/>
+	<feature automatic="unselected" name="BlinkingSpinningRadar"/>
 	<feature automatic="selected" name="Targeting"/>
 	<feature automatic="unselected" name="HeadOnTargeting"/>
 	<feature manual="selected" name="LinearTargeting"/>
