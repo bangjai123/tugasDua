@@ -18,10 +18,10 @@ public class ModuleBot extends Module {
 
 	protected void initialize() {
 		// TODO Customize the colors here
-		setBodyColor(Color.BLACK);
+		setBodyColor(Color.BLUE);
 		setGunColor(Color.BLACK);
-		setRadarColor(Color.BLACK);
-		setScanColor(Color.BLUE);
+		setRadarColor(Color.RED);
+		setScanColor(Color.RED);
 		setBulletColor(Color.RED);
 	}
 
