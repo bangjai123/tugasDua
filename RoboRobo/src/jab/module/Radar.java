@@ -14,14 +14,7 @@ public class Radar extends Part {
 	}
 
 	public void scan() {
-		long time = bot.getTime();
-		if (time % blinkInterval < blinkInterval / 2) {
-			bot.setTurnRadarRightRadians(Double.POSITIVE_INFINITY);
-		} else {
-			bot.setTurnRadarRightRadians(0);
-		}
+		bot.setTurnRadarRightRadians(Double.POSITIVE_INFINITY);
 	}
-
-	int blinkInterval = 5;
 
 }

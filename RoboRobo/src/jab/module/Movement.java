@@ -1,7 +1,7 @@
 package jab.module;
 
-import robocode.HitWallEvent;
-import robocode.Event;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 
 /**
  * Movement
@@ -17,16 +17,45 @@ public class Movement extends Part {
 	}
 
 	public void move() {
-		bot.setMaxVelocity(8);
-		bot.setAhead(10000);
+		bot.setAhead(moveAmount * moveDirection);
+		moveAmount = Math.max(0, moveAmount - 1);
+		bot.setTurnRight(45 * turnDirection);
 	}
 
 	int moveDirection;
-	int turnRightValue = 45;
+	int turnDirection;
+	double moveAmount;
 
-	public void listen(Event e) {
-		if (e instanceof HitWallEvent) {
-			bot.setTurnRight(turnRightValue);
+	public void listenInput(InputEvent e) {
+		if (e instanceof KeyEvent) {
+			if (((KeyEvent) e).getID() == KeyEvent.KEY_PRESSED)
+				switch (((KeyEvent) e).getKeyCode()) {
+				case KeyEvent.VK_UP:
+					moveDirection = 1;
+					moveAmount = Double.POSITIVE_INFINITY;
+					break;
+				case KeyEvent.VK_DOWN:
+					moveDirection = -1;
+					moveAmount = Double.POSITIVE_INFINITY;
+					break;
+				case KeyEvent.VK_RIGHT:
+					turnDirection = 1;
+					break;
+				case KeyEvent.VK_LEFT:
+					turnDirection = -1;
+					break;
+				}
+			else if (((KeyEvent) e).getID() == KeyEvent.KEY_RELEASED)
+				switch (((KeyEvent) e).getKeyCode()) {
+				case KeyEvent.VK_UP:
+				case KeyEvent.VK_DOWN:
+					moveDirection = 0;
+					break;
+				case KeyEvent.VK_RIGHT:
+				case KeyEvent.VK_LEFT:
+					turnDirection = 0;
+					break;
+				}
 		}
 	}
 
