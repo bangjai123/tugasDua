@@ -1,0 +1,15 @@
+ configuration delta "ReverseCircular"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/Movement.java>
+		{
+	addClassifierImport(<class:jab.module.Movement>, "java.awt.event.InputEvent");
+	modifyStatementListContainer(<method:jab.module.Movement.move()>, "public void move() {
+            bot.setAhead(100);
+            bot.setTurnLeft(30);
+	}
+", "ReverseCircular", false);
+	addMember(<class:jab.module.Movement>, "public void listenInput(InputEvent e) {
+        }
+");
+	}
+	
