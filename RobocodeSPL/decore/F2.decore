@@ -1,0 +1,5 @@
+ configuration delta "F2"
+	dialect <http://www.emftext.org/java>
+		{
+	}
+	
