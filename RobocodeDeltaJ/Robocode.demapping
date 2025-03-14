@@ -51,3 +51,6 @@ Circular:
 
 RandomSelectEnemy:
 <decore/RandomSelectEnemy.decore>
+
+ReverseCircular:
+<decore/ReverseCircular.decore>
