@@ -18,13 +18,13 @@ public class SelectEnemy extends Part {
 
 	public void select() {
 		Iterator<BotInfo> iterator = bot.botsInfo.values().iterator();
-		double maxEnergy = Double.MIN_VALUE;
+		double minEnergy = Double.MAX_VALUE;
 		BotInfo selected = null;
 		while (iterator.hasNext()) {
 			BotInfo e = iterator.next();
-			if (maxEnergy < e.energy) {
+			if (minEnergy > e.energy) {
 				selected = e;
-				maxEnergy = e.energy;
+				minEnergy = e.energy;
 			}
 		}
 		bot.enemy = selected;
