@@ -1,0 +1,29 @@
+delta RandomSelectEnemy {
+
+    modifies jab.module.SelectEnemy {
+    
+    	adds import java.util.Random;
+    	adds import java.util.Iterator;
+    	adds import jab.module.BotInfo;
+    
+        adds private Random random = new Random();
+    
+        modifies select() {
+            Iterator<BotInfo> iterator = bot.botsInfo.values().iterator();
+            int size = bot.botsInfo.size();
+            if (size == 0) {
+                bot.enemy = null;
+                return;
+            }
+            
+            int randomIndex = random.nextInt(size);
+            BotInfo selected = null;
+            
+            for (int i = 0; i <= randomIndex; i++) {
+                selected = iterator.next();
+            }
+            
+            bot.enemy = selected;
+        }
+    }
+}

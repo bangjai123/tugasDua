@@ -48,3 +48,6 @@ MouseClickGun:
 
 Circular:
 <decore/Circular.decore>
+
+RandomSelectEnemy:
+<decore/RandomSelectEnemy.decore>
