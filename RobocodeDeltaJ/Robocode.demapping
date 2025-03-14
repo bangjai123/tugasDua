@@ -42,3 +42,6 @@ NoFireGun:
 
 MouseClickGun:
 <decore/MouseClickGun.decore>
+
+Circular:
+<decore/Circular.decore>
