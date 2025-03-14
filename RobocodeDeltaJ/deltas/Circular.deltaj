@@ -1,2 +1,15 @@
 delta Circular {
+
+    modifies jab.module.Movement {
+
+        adds import java.awt.event.InputEvent;
+
+        modifies move() {
+            bot.setAhead(100);
+            bot.setTurnRight(30);
+        }
+
+        adds public void listenInput(InputEvent e) {
+        }
+    }
 }

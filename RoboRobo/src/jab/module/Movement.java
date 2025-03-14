@@ -1,5 +1,7 @@
 package jab.module;
 
+import java.awt.event.InputEvent;
+
 /**
  * Movement
  * 
@@ -14,7 +16,11 @@ public class Movement extends Part {
 	}
 
 	public void move() {
-		bot.setAhead(0.0001);
+		bot.setAhead(100);
+		bot.setTurnRight(30);
+	}
+
+	public void listenInput(InputEvent e) {
 	}
 
 }
