@@ -1,2 +1,16 @@
 delta BlinkingSpinningRadar {
+
+    modifies jab.module.Radar {
+
+        adds int blinkInterval = 5;
+
+        modifies scan() {
+            long time = bot.getTime();
+            if (time % blinkInterval < blinkInterval / 2) {
+                bot.setTurnRadarRightRadians(Double.POSITIVE_INFINITY);
+            } else {
+                bot.setTurnRadarRightRadians(0);
+            }
+        }
+    }
 }
