@@ -1,22 +1,22 @@
-delta MaximumPowerGun {
+delta StrongestSelectEnemy {
 
-    modifies jab.module.Gun {
+    modifies jab.module.SelectEnemy {
 
-        adds import robocode.Rules;
-        adds import robocode.Bullet;
+        adds import java.util.Iterator;
+        adds import jab.module.BotInfo;
 
-        modifies fire() {
-            if (bot.enemy != null) {
-                double bulletPower = Math.min(Rules.MAX_BULLET_POWER, bot.getEnergy() - 0.01);
-                if (bot.enemy.energy == 0) {
-                    bulletPower = 0;
-                }
-                bot.bulletPower = bulletPower;
-                if (bot.getGunHeat() == 0) {
-                    Bullet b = bot.setFireBullet(bulletPower);
-                    bot.registerBullet(b);
+        modifies select() {
+            Iterator<BotInfo> iterator = bot.botsInfo.values().iterator();
+            double maxEnergy = Double.MIN_VALUE;
+            BotInfo selected = null;
+            while (iterator.hasNext()) {
+                BotInfo e = iterator.next();
+                if (maxEnergy < e.energy) {
+                    selected = e;
+                    maxEnergy = e.energy;
                 }
             }
+            bot.enemy = selected;
         }
     }
 }

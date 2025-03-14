@@ -4,6 +4,9 @@ NoMovement:
 SpinningRadar:
 <decore/SpinningRadar.decore>
 
+MouseRadar:
+<decore/MouseRadar.decore>
+
 BlinkingSpinningRadar:
 <decore/BlinkingSpinningRadar.decore>
 
