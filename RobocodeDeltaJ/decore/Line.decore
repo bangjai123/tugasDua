@@ -1,0 +1,5 @@
+ configuration delta "Line"
+	dialect <http://www.emftext.org/java>
+		{
+	}
+	

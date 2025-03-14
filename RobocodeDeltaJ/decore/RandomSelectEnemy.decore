@@ -1,0 +1,29 @@
+ configuration delta "RandomSelectEnemy"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/SelectEnemy.java>
+		{
+	addClassifierImport(<class:jab.module.SelectEnemy>, "java.util.Random");
+	addClassifierImport(<class:jab.module.SelectEnemy>, "java.util.Iterator");
+	addClassifierImport(<class:jab.module.SelectEnemy>, "jab.module.BotInfo");
+	addMember(<class:jab.module.SelectEnemy>, "private Random random = new Random();
+");
+	modifyStatementListContainer(<method:jab.module.SelectEnemy.select()>, "public void select() {
+            Iterator<BotInfo> iterator = bot.botsInfo.values().iterator();
+            int size = bot.botsInfo.size();
+            if (size == 0) {
+                bot.enemy = null;
+                return;
+            }
+            
+            int randomIndex = random.nextInt(size);
+            BotInfo selected = null;
+            
+            for (int i = 0; i <= randomIndex; i++) {
+                selected = iterator.next();
+            }
+            
+            bot.enemy = selected;
+	}
+", "RandomSelectEnemy", false);
+	}
+	

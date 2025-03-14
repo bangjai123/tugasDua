@@ -1,0 +1,17 @@
+ configuration delta "BlinkingSpinningRadar"
+	dialect <http://www.emftext.org/java>
+		modifies <../src/jab/module/Radar.java>
+		{
+	addMember(<class:jab.module.Radar>, "int blinkInterval = 5;
+");
+	modifyStatementListContainer(<method:jab.module.Radar.scan()>, "public void scan() {
+            long time = bot.getTime();
+            if (time % blinkInterval < blinkInterval / 2) {
+                bot.setTurnRadarRightRadians(Double.POSITIVE_INFINITY);
+            } else {
+                bot.setTurnRadarRightRadians(0);
+            }
+	}
+", "BlinkingSpinningRadar", false);
+	}
+	
