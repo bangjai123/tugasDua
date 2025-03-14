@@ -18,6 +18,7 @@
               <features maxCardinality="1" name="Cornering"/>
               <features maxCardinality="1" name="Line"/>
               <features maxCardinality="1" name="Circular"/>
+              <features maxCardinality="1" name="ReverseCircular"/>
             </groups>
           </features>
         </groups>
